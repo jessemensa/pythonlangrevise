@@ -577,3 +577,48 @@ print(Sales.applySalesTax(20))
 print(Sales.applySalesTaxMany([10, 20, 30]))
     
 # GOOGLE CLASS VS STATIC METHODS IN PYTHON 
+
+
+# INHERITANCE IN PYTHON 
+# OBJECT ORIENTED PROGRAMMING => CREATE NEW CLASSES BASED ON EXISTING CLASSES 
+# IE PARENT CLASS -> CHILDREN CLASSES | PERSON CLASS -> EMPLOYEE CLASS | PERSON CLASS -> MANAGER CLASS | PERSON CLASS -> CUSTOMER CLASS 
+
+
+# CREATE A PARENT CLASS or BASE CLASS 
+class Person: 
+    def __init__(self, firstname, lastname): 
+        self.firstname = firstname 
+        self.lastname = lastname 
+    
+    def display(self):
+        print(self.firstname + " " + self.lastname) 
+x = Person("Jesse", "Mensah")
+x.display() 
+
+
+# CHILD CLASS 
+class Employee(Person): pass 
+x = Employee("Jesse", "Mensah") 
+x.display() 
+
+
+# INHERITING AT MULTIPLE VALUES 
+class Employer(Person): 
+    def __init__(self, firstname, lastname, empid): 
+        Person.__init__(self, firstname, lastname) 
+        self.employerid = empid 
+
+class Director(Employer): 
+    def __init__(self, empid, firstname, lastname,dlevel):
+        Employer.__init__(self, empid, firstname, lastname)
+        self.directorlevel = dlevel 
+
+# OVERRIDING METHODS 
+# display method in person class can be overriden 
+class Customer(Person): 
+    def display(self):
+        print("Customer first name is: " + self.firstname)
+        print("Customer last name is: " + self.lastname) 
+
+
+
